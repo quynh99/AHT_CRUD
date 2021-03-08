@@ -1,0 +1,36 @@
+<style>
+table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  margin-top: 30px;}
+td, th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  }
+tr:nth-child(even) { background-color: #dddddd; }
+.post-id{width:2%} .post-name{width:30%}
+
+</style>
+
+<table>
+	<a href="<?php echo $block->getBaseUrl(); ?>crud/index/insert" class="btn btn-primary btn-xs pull-right">New Post</a>
+  <tr>
+    <th class="post-id">Id</th>
+    <th class="post-name">Name</th>
+    <th>Content</th>
+	<th>Create at</th>
+	<th>Update at</th>
+	<th>Edit</th>
+	<th>Delete</th>
+  </tr>
+  <?php
+    foreach ($block->getPostCollection() as $key=>$post) {
+    	echo "<tr style=\"border: 1px solid #dddddd; text-align: left; padding: 8px;\">";
+    	echo "<td>".$post->getId()."</td>";
+    	echo "<td>".$post->getName()."</td>";
+		echo "<td>".$post->getContent()."</td>";
+    	echo "<td>".$post->getCreatedAt()."</td>";
+    	echo "<td>".$post->getUpdatedAt()."</td>";
+    	echo "<td><a href='".$block->getBaseUrl()."crud/index/edit/id/".$post->getId()."'>Edit</a></td>";
+    	echo "<td><a href='".$block->getBaseUrl()."crud/index/delete/id/".$post->getId()."'>Delete</a></td>";
+    	echo "</tr>";
+    }
+    ?>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+ 
+<?php
+
+/** @var \AHT\CRUD\Block\Template $block */
+?>
+
+<div class="template">
+    <div class="container">
+        <form method='POST' action="/m235/crud/index/save">
+            <div class="form-group">
+                <input type="hidden" name="id" value="<?php echo $block->getPost('id');  ?>">
+                <label for="name"><b>Name</b></label>
+                <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="<?php echo $block->getPost('name');  ?>">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="content"><b>Content</b></label>
+                <input type="text" class="form-control" id="content" placeholder="Content" name="content" value="<?php echo $block->getPost('content'); ?>">
+            </div>
+            <br>
+            <button type=" submit" class="btn btn-primary" name="btn_edit">Submit</button>
+        </form>
+    </div>
+
+</div>
